@@ -552,9 +552,11 @@ automatically get picked up and shown as default.
   %= select_field country => [qw(de en)]
   %= select_field country => [[Germany => 'de'], 'en'], id => 'eu'
   %= select_field country => [[Germany => 'de', disabled => 'disabled'], 'en']
-  %= select_field country => [[Germany => 'de', selected => 'selected'], 'en']
   %= select_field country => [c(EU => [[Germany => 'de'], 'en'], id => 'eu')]
   %= select_field country => [c(EU => [qw(de en)]), c(Asia => [qw(cn jp)])]
+  #And to have a default option selected:
+  % param country => 'de' unless param 'country';
+  %= select_field country => [qw(de en)]
 
 Generate C<select> and C<option> tags from array references and C<optgroup>
 tags from L<Mojo::Collection> objects. Previous input values will automatically
@@ -573,10 +575,6 @@ get picked up and shown as default.
     <option value="en">en</option>
   </select>
   <select name="country">
-    <option selected="selected" value="de">Germany</option>
-    <option value="en">en</option>
-  </select>
-  <select name="country">
     <optgroup id="eu" label="EU">
       <option value="de">Germany</option>
       <option value="en">en</option>
@@ -591,6 +589,10 @@ get picked up and shown as default.
       <option value="cn">cn</option>
       <option value="jp">jp</option>
     </optgroup>
+  </select>
+  <select name="country">
+    <option selected="selected" value="de">de</option>
+    <option value="en">en</option>
   </select>
 
 =head2 stylesheet
