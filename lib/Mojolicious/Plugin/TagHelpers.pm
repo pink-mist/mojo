@@ -554,7 +554,7 @@ automatically get picked up and shown as default.
   %= select_field country => [[Germany => 'de', disabled => 'disabled'], 'en']
   %= select_field country => [c(EU => [[Germany => 'de'], 'en'], id => 'eu')]
   %= select_field country => [c(EU => [qw(de en)]), c(Asia => [qw(cn jp)])]
-  #And to have a default option selected:
+  %# And to have a default option selected:
   % param country => 'de' unless param 'country';
   %= select_field country => [qw(de en)]
 
