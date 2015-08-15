@@ -552,6 +552,7 @@ automatically get picked up and shown as default.
   %= select_field country => [qw(de en)]
   %= select_field country => [[Germany => 'de'], 'en'], id => 'eu'
   %= select_field country => [[Germany => 'de', disabled => 'disabled'], 'en']
+  %= select_field country => [[Germany => 'de', selected => 'selected'], 'en']
   %= select_field country => [c(EU => [[Germany => 'de'], 'en'], id => 'eu')]
   %= select_field country => [c(EU => [qw(de en)]), c(Asia => [qw(cn jp)])]
 
@@ -569,6 +570,10 @@ get picked up and shown as default.
   </select>
   <select name="country">
     <option disabled="disabled" value="de">Germany</option>
+    <option value="en">en</option>
+  </select>
+  <select name="country">
+    <option selected="selected" value="de">Germany</option>
     <option value="en">en</option>
   </select>
   <select name="country">
